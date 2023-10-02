@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
+
+//Bottom Nav Bar
 class AboutMe extends StatefulWidget {
   const AboutMe({super.key});
   @override
   State<AboutMe> createState() => _AboutMeState();
 }
 
+//Bottom Nav Bar
 class _AboutMeState extends State<AboutMe> {
   int counter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("About Me")),
       body: Center(
         child: Column(
           children: [

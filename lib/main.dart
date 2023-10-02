@@ -5,7 +5,7 @@ import 'pages/Contact.dart';
 import "pages/numberGen.dart";
 
 void main() {
-  runApp(const Generator());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -22,8 +22,19 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          body: Text("Hello wolrd"),
-        
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (int index){
+            setState(() {
+              _currentIndex= index;
+            });
+          },
+          items: [
+        BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
+        BottomNavigationBarItem(label: "ABC", icon: Icon(Icons.abc)),
+      ]),
+      body: IndexedStack(index: _currentIndex,
+      children: pages),
     ));
   }
 }
