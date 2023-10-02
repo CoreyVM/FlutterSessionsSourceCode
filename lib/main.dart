@@ -1,39 +1,61 @@
 import "package:flutter/material.dart";
-import "pages/homepage.dart";
-import "pages/aboutme.dart";
-import 'pages/Contact.dart';
+
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+
+class MyApp extends  StatelessWidget{
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+ Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      appBar: (AppBar(title: Text("My App"),)),
+      body: Center(child: Text("Hello World!"))
+    ));
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  int _currentIndex = 0;
-  List<Widget> pages = [HomePage(), AboutMe()];
+
+
+/* Variant with multiple widgets in body
+class MyApp extends StatelessWidget {
+  const MyApp2({super.key});
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (int index){
-            setState(() {
-              _currentIndex= index;
-            });
-          },
-          items: [
-        BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "ABC", icon: Icon(Icons.abc)),
-      ]),
-      body: IndexedStack(index: _currentIndex,
-      children: pages),
+      appBar: (AppBar(title: Text("My App"),)),
+      body: Center(
+        child: Column(children: [
+          const Text("Hello World"),
+          Image.asset("/workspaces/FlutterTest/lib/Images/Dog.jpg",height:300,width:300)
+        ],),
+      )
     ));
   }
 }
+*/
+
+/* Button With Text Inside
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("My App")),
+        body: Center(
+          child: ElevatedButton(child: Text("Press me!"), onPressed: (){print("Hello!");},),
+        ),
+      ),
+    );
+  }
+}
+*/
