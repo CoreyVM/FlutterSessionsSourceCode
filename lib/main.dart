@@ -2,9 +2,10 @@ import "package:flutter/material.dart";
 import "pages/homepage.dart";
 import "pages/aboutme.dart";
 import 'pages/Contact.dart';
+import "pages/numberGen.dart";
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp()); //MyApp
 }
 
 class MyApp extends StatefulWidget {
