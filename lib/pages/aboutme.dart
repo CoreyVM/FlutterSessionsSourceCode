@@ -17,10 +17,10 @@ class _AboutMeState extends State<AboutMe> {
             Center(child: Text("My name is Corey Veitch-McAllister")),
             Center(child: Text("I am a Advanced Technical Lecturer")),
             Center(child: Text("I am 27 Years old")),
-            Image.asset("/workspaces/FlutterTest/lib/Assetts/Images/doge.jpg",
+            Image.asset("/workspaces/FlutterTest/lib/Assets/Images/doge.jpg",
                 height: 100, width: 100),
             Image.asset(
-              "/workspaces/FlutterTest/lib/Assetts/Images/Dog.jpg",
+              "/workspaces/FlutterTest/lib/Assets/Images/Dog.jpg",
               height: 100,
               width: 100,
             )
