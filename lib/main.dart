@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(home:Scaffold(
       appBar: AppBar(title: Text("Home Page"), centerTitle: true,),
-      body: Text("Hello World"),
+      body: ElevatedButton(onPressed: (){
+        AudioPlayer audio = AudioPlayer();
+        audio.play(UrlSource("lib/assets/audio/cat.mp3"));
+      },child: Text("help"),),
     ));
   }
 }
