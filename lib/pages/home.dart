@@ -1,62 +1,19 @@
 import 'package:flutter/material.dart';
-import "pages/home.dart";
-import "pages/basket.dart";
-import "pages/checkout.dart";
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<HomePage> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
-  List<Widget> _pages = <Widget> [HomePage(),Basket(), Checkout()];
+class _MyAppState extends State<HomePage> {
 
-  @override
+   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: Scaffold(
-        body: _pages.elementAt(_selectedIndex),
-        
-          bottomNavigationBar: BottomNavigationBar(
-              currentIndex: _selectedIndex,
-              backgroundColor: Colors.white,
-              selectedItemColor: Colors.red,
-              unselectedItemColor: Colors.black,
-              onTap: _BottomBarTapped,
-              items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(label: "Store", icon: Icon(Icons.home)),
-            BottomNavigationBarItem(
-                label: "Basket", icon: Icon(Icons.shopping_basket)),
-            BottomNavigationBarItem(
-                label: "Checkout", icon: Icon(Icons.payment)),
-          ])),
-    );
-  }
-
-  void _BottomBarTapped(int value) {
-    setState(() {
-      _selectedIndex = value;
-    });
-  }
-}
-
-//Before Extracted Widgets For Readability
-/*
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return
+      Scaffold(
         appBar: AppBar(
           title: const Text("Nike"),
           centerTitle: true,
@@ -152,12 +109,12 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
-              Text("Rip"),
+
             ],
+
           ),
         ),
-      ),
     );
   }
-}
-*/
+
+  }
