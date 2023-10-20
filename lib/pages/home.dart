@@ -23,8 +23,8 @@ class _MyAppState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Search Bar
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding:  EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search),
@@ -33,8 +33,8 @@ class _MyAppState extends State<HomePage> {
                 ),
               ),
               // Categories
-              Padding(
-                padding: const EdgeInsets.all(8),
+             const Padding(
+                padding:  EdgeInsets.all(8),
                 child: Text("Categories", style: TextStyle(fontSize: 22)),
               ),
               // Categories Row
@@ -67,8 +67,8 @@ class _MyAppState extends State<HomePage> {
                 ),
               ),
               // Popular
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text("Popular", style: TextStyle(fontSize: 22)),
               ),
               // Popular Row
@@ -81,8 +81,8 @@ class _MyAppState extends State<HomePage> {
                 ],
               ),
               // On Demand
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+             const Padding(
+                padding:  EdgeInsets.all(8.0),
                 child: Center(
                   child: Text(
                     "On Demand",
@@ -98,7 +98,7 @@ class _MyAppState extends State<HomePage> {
                   Container(height: 150, width: 150, color: Colors.orange),
                 ],
               ),
-              Text("On Sale", style: TextStyle(fontSize: 24)),
+              const Text("On Sale", style: TextStyle(fontSize: 24)),
               Container(
                 height: 80,
                 child: ListView(
@@ -129,9 +129,7 @@ class _MyAppState extends State<HomePage> {
                   ],
                 ),
               ),
-
             ],
-
           ),
         ),
     );
