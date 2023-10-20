@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/producttile.dart';
+import "../product.dart";
+
 
 
 class Basket extends StatefulWidget {
@@ -13,7 +16,22 @@ class _BasketState extends State<Basket> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Basket"),centerTitle: true,),
-      body: Center(child: Image.asset("lib/assets/images/basket.jpg"),),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: 4,
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) {
+              
+               Product prd = Product(name: "Cozza",description: "asdsad",imagePath: "lib/assets/images/Dog.jpg",price: "123");
+               return ProductTile(
+                product: prd
+              );
+            },),
+          ),
+        ],
+      ),
     );
   }
 }

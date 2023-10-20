@@ -38,13 +38,33 @@ class _MyAppState extends State<HomePage> {
                 child: Text("Categories", style: TextStyle(fontSize: 22)),
               ),
               // Categories Row
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(height: 100, width: 100, color: Colors.red),
-                  Container(height: 100, width: 100, color: Colors.blue),
-                  Container(height: 100, width: 100, color: Colors.green),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right:8.0,left:8),
+                      child: Container(height: 100, width: 100, color: Colors.red),
+                    ),
+                   Padding(
+                      padding: const EdgeInsets.only(right:8.0),
+                      child: Container(height: 100, width: 100, color: Colors.blue),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right:8.0),
+                      child: Container(height: 100, width: 100, color: Colors.orange),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right:8.0),
+                      child: Container(height: 100, width: 100, color: Colors.purple),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right:8.0),
+                      child: Container(height: 100, width: 100, color: Colors.green),
+                    ),
+                  ],
+                ),
               ),
               // Popular
               Padding(
