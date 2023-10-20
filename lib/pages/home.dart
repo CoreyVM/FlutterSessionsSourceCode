@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/producttile.dart';
+import 'package:flutter_app/product.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -32,45 +34,36 @@ class _MyAppState extends State<HomePage> {
                   ),
                 ),
               ),
-              // Categories
+              // New Text
              const Padding(
                 padding:  EdgeInsets.all(8),
-                child: Text("Categories", style: TextStyle(fontSize: 22)),
+                child: Text("New", style: TextStyle(fontSize: 22)),
               ),
-              // Categories Row
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right:8.0,left:8),
-                      child: Container(height: 100, width: 100, color: Colors.red),
-                    ),
-                   Padding(
-                      padding: const EdgeInsets.only(right:8.0),
-                      child: Container(height: 100, width: 100, color: Colors.blue),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right:8.0),
-                      child: Container(height: 100, width: 100, color: Colors.orange),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right:8.0),
-                      child: Container(height: 100, width: 100, color: Colors.purple),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right:8.0),
-                      child: Container(height: 100, width: 100, color: Colors.green),
-                    ),
-                  ],
+              
+              // New Items Section
+              SizedBox(
+                height: 150,
+                width: MediaQuery.of(context).size.width,
+                child: Expanded(child: ListView.builder(
+                  scrollDirection: Axis.horizontal,   itemBuilder: ((context, index) {
+                  Product prod = Product(name: "Corey", price: "24", imagePath: "lib/assets/images/dog.jpg", description: "description");
+                
+                return ProductTile(product: prod);
+                }
+                )
+                )
                 ),
               ),
-              // Popular
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("Popular", style: TextStyle(fontSize: 22)),
-              ),
+              
+              SizedBox(height: 150,),
+
+
+
+
+
+
+
+
               // Popular Row
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

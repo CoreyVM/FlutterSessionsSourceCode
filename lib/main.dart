@@ -4,7 +4,7 @@ import "pages/basket.dart";
 import "pages/checkout.dart";
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {

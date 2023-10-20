@@ -11,14 +11,15 @@ class ProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 2),
-      width: 200,
+      width: 150,
+      height: 150,
       decoration: BoxDecoration(color: Colors.grey[100],
       borderRadius: BorderRadius.circular(12)),
 
 
       child: Column(children: [
         //Picture
-        Image.asset(product.imagePath),
+        Image.asset(product.imagePath,width: 150,height: 150,),
         //Descirption
         Text(product.description),
         //Price + Dertai
