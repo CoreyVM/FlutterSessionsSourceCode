@@ -82,7 +82,9 @@ class ProductDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
+        
         title: Text("Product Details"),
       ),
       body: Column(
@@ -95,10 +97,16 @@ class ProductDetailsPage extends StatelessWidget {
           ),
 
           //Name
-           Text(product.name,textAlign: TextAlign.start,style: TextStyle(fontSize: 34),),
+           Padding(
+             padding: const EdgeInsets.only(top:8.0,left: 5),
+             child: Text(product.name,textAlign: TextAlign.start,style: TextStyle(fontSize: 34),),
+           ),
 
           //Price
-           Text(product.price,textAlign: TextAlign.start,style: TextStyle(fontSize: 30),),
+           Padding(
+             padding: const EdgeInsets.only(top:8.0,left: 5,bottom:10),
+             child: Text(product.price,textAlign: TextAlign.start,style: TextStyle(fontSize: 30),),
+           ),
 
            //Description
            Text(product.description,textAlign: TextAlign.start,style: TextStyle(fontSize: 18),),

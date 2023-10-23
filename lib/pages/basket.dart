@@ -21,7 +21,7 @@ class _BasketState extends State<Basket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Basket"),centerTitle: true,),
+      appBar: AppBar(title: const Text("Basket"),centerTitle: true,),
       body: Column(
         children: [
           Expanded(
