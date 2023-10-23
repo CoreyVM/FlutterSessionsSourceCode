@@ -44,13 +44,13 @@ class BasketTile extends StatelessWidget {
                 child: Image.asset(product.imagePath, height: 100, width: 100),
               ),
               Container(
-                width: 250,
+                width: 200,
                 height: 100,
                 child: Text(product.description, softWrap: true),
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.only(right: 6),
+                padding: const EdgeInsets.only(right: 10),
                 child: FloatingActionButton(
                   onPressed: () { //Remove Tile From Basket List
                      var basketProvider = Provider.of<BasketProvider>(context, listen: false);
