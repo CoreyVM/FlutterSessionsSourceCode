@@ -32,11 +32,24 @@ class ProductTile extends StatelessWidget {
           Image.asset(product.imagePath,),
           
           //Descirption (Name)
-          Positioned(child: Text(product.name,style: TextStyle(color: Colors.white,fontSize: 18),),
+          Positioned(child: Text(product.name,style: 
+          TextStyle(color: Colors.white,fontSize: 18,
+         shadows: <Shadow>[
+              Shadow(
+                color: Colors.black.withOpacity(0.8), // Shadow color and opacity
+                offset: Offset(2, 2), // Offset of the shadow
+                blurRadius: 5, // Spread of the shadow
+              ),
+         ])),
           top: 0,),
           
           //Price
-          Positioned(child: Text(product.price,style: TextStyle(color: Colors.white,fontSize: 23),),
+          Positioned(child: Text(product.price,style: TextStyle(color: Colors.white,fontSize: 23,shadows: <Shadow>[
+              Shadow(
+                color: Colors.black.withOpacity(0.8), // Shadow color and opacity
+                offset: Offset(2, 2), // Offset of the shadow
+                blurRadius: 5, // Spread of the shadow
+              ),]),),
           bottom: 10,
           left: 10),
       
