@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/producttile.dart';
 import 'package:flutter_app/product.dart';
-
+import "../products.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _MyAppState extends State<HomePage> {
-
+    
+    List<Product> productList = GetProductList();
    @override
   Widget build(BuildContext context) {
     return
@@ -45,11 +46,14 @@ class _MyAppState extends State<HomePage> {
                 height: 150,
                 width: MediaQuery.of(context).size.width,
                 child: Expanded(child: ListView.builder(
-                  scrollDirection: Axis.horizontal,   itemBuilder: ((context, index) {
-                  Product prod = Product(name: "Corey", price: "24", imagePath: "lib/assets/images/dog.jpg", description: "description");
-                
-                return ProductTile(product: prod);
-                }
+                  itemCount: GetProductList().length,
+                  //Temp remove this later!!!
+                  
+                  scrollDirection: Axis.horizontal,   
+                  itemBuilder: ((context, index) {
+                    return ProductTile(product: productList[index],);
+                      
+                  }
                 )
                 )
                 ),
