@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/baskettile.dart';
 import 'package:flutter_app/components/producttile.dart';
 import "../product.dart";
-
+import "../components/basketprovider.dart";
+import "package:provider/provider.dart";
 
 
 /*Very WIP need to refactor alot of things
@@ -18,27 +20,51 @@ class Basket extends StatefulWidget {
 }
 
 class _BasketState extends State<Basket> {
+
+
+  
+
   @override
   Widget build(BuildContext context) {
+      final basketProvider = Provider.of<BasketProvider>(context);
+      List<Product> baskedItems = basketProvider.basketItems;
     return Scaffold(
+      
       appBar: AppBar(title: const Text("Basket"),centerTitle: true,),
       body: Column(
         children: [
-          Expanded(
+
+          if (baskedItems.isEmpty)
+              
+              const Padding(
+                padding: const EdgeInsets.only(top: 350),
+                child: Center(child: Text("Try Adding Some Items",softWrap: true,
+                style: TextStyle(fontSize: 35),)),
+              )
+
+          else
+          Flexible(
+           // width: MediaQuery.of(context).size.width,
+          //  height: MediaQuery.of(context).size.height,
             child: ListView.builder(
-              itemCount: 4,
+            
+              itemCount: baskedItems.length,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
               
-               Product prd = Product(name: "Cozza",description: "asdsad",imagePath: "lib/assets/images/Dog.jpg",price: "123");
-               return ProductTile(
-                product: prd
-              );
-            },),
-          ),
+               return BasketTile(
+                product: baskedItems[index],callback: ReloadPage,);
+              
+            },
+          )),
         ],
       ),
     );
+  }
+
+  void ReloadPage(){
+    setState(() {  
+    });
   }
 }
 

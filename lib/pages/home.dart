@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 class _MyAppState extends State<HomePage> {
     
     List<Product> productList = GetProductList();
+    List<Product> baskedItems = List.empty();
    @override
   Widget build(BuildContext context) {
     return
@@ -45,7 +46,7 @@ class _MyAppState extends State<HomePage> {
               SizedBox(
                 height: 150,
                 width: MediaQuery.of(context).size.width,
-                child: Expanded(child: ListView.builder(
+                child: ListView.builder(
                   itemCount: GetProductList().length,
                   //Temp remove this later!!!
                   
@@ -54,7 +55,6 @@ class _MyAppState extends State<HomePage> {
                     return ProductTile(product: productList[index],);
                       
                   }
-                )
                 )
                 ),
               ),

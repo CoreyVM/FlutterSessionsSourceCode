@@ -1,5 +1,8 @@
-import 'package:flutter/material.dart';
+import 'dart:js';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_app/components/basketprovider.dart';
+import 'package:provider/provider.dart';
 import '../product.dart';
 
 
@@ -60,9 +63,17 @@ class ProductTile extends StatelessWidget {
           Positioned(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: FloatingActionButton(mini: true,
-                onPressed: (){}, child: const Icon(Icons.add)
-                ),
+              child: Consumer(
+                builder: (context, basketProv, child) {
+                  return FloatingActionButton(mini: true,
+                  onPressed: (){
+                        var basketProvider = Provider.of<BasketProvider>(context, listen: false);
+                         basketProvider.AddItemToBasket(product);
+                  }, child: const Icon(Icons.add)
+                  );
+                },
+                
+              ),
             ),
            right: 0,
            bottom: 0, ),
@@ -87,35 +98,43 @@ class ProductDetailsPage extends StatelessWidget {
         
         title: Text("Product Details"),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Add the Hero widget here with the same tag
-          Hero(
-            tag: "product-image",
-            child: Image.asset(product.imagePath),
-          ),
-
-          //Name
-           Padding(
-             padding: const EdgeInsets.only(top:8.0,left: 5),
-             child: Text(product.name,textAlign: TextAlign.start,style: TextStyle(fontSize: 34),),
-           ),
-
-          //Price
-           Padding(
-             padding: const EdgeInsets.only(top:8.0,left: 5,bottom:10),
-             child: Text(product.price,textAlign: TextAlign.start,style: TextStyle(fontSize: 30),),
-           ),
-
-           //Description
-           Text(product.description,textAlign: TextAlign.start,style: TextStyle(fontSize: 18),),
-
-
-          // ... (rest of your product details)
-        ],
-        
-      ),floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.plus_one)),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Add the Hero widget here with the same tag
+            Hero(
+              tag: "product-image",
+              child: Image.asset(product.imagePath),
+            ),
+      
+            //Name
+             Padding(
+               padding: const EdgeInsets.only(top:8.0,left: 5),
+               child: Text(product.name,textAlign: TextAlign.start,style: TextStyle(fontSize: 34),),
+             ),
+      
+            //Price
+             Padding(
+               padding: const EdgeInsets.only(top:8.0,left: 5,bottom:10),
+               child: Text(product.price,textAlign: TextAlign.start,style: TextStyle(fontSize: 30),),
+             ),
+      
+             //Description
+             Text(product.description,textAlign: TextAlign.start,style: TextStyle(fontSize: 18),),
+      
+      
+            // ... (rest of your product details)
+          ],
+          
+        ),
+      ),floatingActionButton: FloatingActionButton(
+        onPressed: () {
+        var basketProvider = Provider.of<BasketProvider>(context, listen: false);
+        basketProvider.AddItemToBasket(product);
+      }, 
+      child: const Icon(Icons.plus_one)),
     );
   }
 }
+
