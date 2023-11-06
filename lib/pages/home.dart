@@ -48,8 +48,6 @@ class _MyAppState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   itemCount: GetProductList().length,
-                  //Temp remove this later!!!
-                  
                   scrollDirection: Axis.horizontal,   
                   itemBuilder: ((context, index) {
                     return ProductTile(product: productList[index],);
@@ -60,12 +58,6 @@ class _MyAppState extends State<HomePage> {
               ),
               
               SizedBox(height: 150,),
-
-
-
-
-
-
 
 
               // Popular Row

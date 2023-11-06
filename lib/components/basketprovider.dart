@@ -7,7 +7,6 @@ class BasketProvider with ChangeNotifier{
   void AddItemToBasket(Product prd){
     basketItems.add(prd);
     notifyListeners();
-    print(basketItems.length);
   }
 
   void RemoveItemFromBasket(Product prd){
@@ -18,5 +17,13 @@ class BasketProvider with ChangeNotifier{
     int indexToRemove = basketItems.indexOf(prd); 
     basketItems.removeAt(indexToRemove);
     }
+  }
+
+  String GetBasketSum(){
+    int total = 0;
+    for (int i = 0; i < basketItems.length; i++){
+     total += int.parse(basketItems[i].price);
+    }
+    return total.toString();
   }
 }

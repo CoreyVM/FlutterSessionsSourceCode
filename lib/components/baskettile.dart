@@ -5,6 +5,35 @@ import "../components/basketprovider.dart";
 import '../pages/basket.dart';
 
 
+
+class BasketTile extends StatelessWidget {
+  BasketTile({super.key, required this.product, required this.callback});
+  Product product;
+  final callback;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListTile(
+          leading: Image.asset(product.imagePath),
+          title: Text(product.description),
+          trailing: FloatingActionButton(onPressed: (){
+            var basketProvider = Provider.of<BasketProvider>(context, listen: false);
+        basketProvider.RemoveItemFromBasket(product);
+      callback();
+          }
+          ,child: Icon(Icons.remove),)
+          
+        ),
+    );
+  }
+  void RefreshBasketPage(){
+        
+  }
+}
+
+/*
 class BasketTile extends StatelessWidget {
   BasketTile({super.key, required this.product, required this.callback});
   Product product;
@@ -72,3 +101,4 @@ class BasketTile extends StatelessWidget {
         
   }
 }
+*/

@@ -6,12 +6,7 @@ import "../components/basketprovider.dart";
 import "package:provider/provider.dart";
 
 
-/*Very WIP need to refactor alot of things
- Such as the ListView needs a more modular approach
- such as using a list of added items. 
- Then need to make BaskedTile class to make the list view
- in a basket like manner.
-*/
+
 class Basket extends StatefulWidget {
   const Basket({super.key});
 
@@ -44,8 +39,7 @@ class _BasketState extends State<Basket> {
 
           else
           Flexible(
-           // width: MediaQuery.of(context).size.width,
-          //  height: MediaQuery.of(context).size.height,
+
             child: ListView.builder(
             
               itemCount: baskedItems.length,
@@ -54,7 +48,6 @@ class _BasketState extends State<Basket> {
               
                return BasketTile(
                 product: baskedItems[index],callback: ReloadPage,);
-              
             },
           )),
         ],
@@ -67,8 +60,3 @@ class _BasketState extends State<Basket> {
     });
   }
 }
-
-/*The basket needs a ListView.builder with a list of widget tiles
- to render out everything in the basket if we want a visual rep
- of all items the user could buy
-*/
