@@ -1,12 +1,24 @@
 import "package:flutter/material.dart";
 import "pages/homepage.dart";
 import "pages/aboutme.dart";
-import 'pages/Contact.dart';
-import "pages/numberGen.dart";
 
 void main() {
   runApp(const MyApp()); //MyApp
 }
+
+/* Part 1 of Session Page Setup
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: HomePage());
+  }
+}
+*/
+
+
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
